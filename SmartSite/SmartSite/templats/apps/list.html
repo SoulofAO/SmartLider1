@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Вывод{% endblock %}
+{% block content %}
+{% if last %}
+{%for a in last%}
+<a href="{% url 'osn:detail' a.id %}">{{a.Name}}</a>
+{%endfor%}
+{%else%}
+По вашему запросу ничего не найдено
+{%endif%}
+{% endblock %}

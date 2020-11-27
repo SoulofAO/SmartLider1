@@ -5,7 +5,8 @@ class Priloshenie((models.Model)):
     Name=models.CharField("название", max_length=200)
     Text = models.TextField("Текст")
     Pub_Date=models.DateTimeField("Дата создания")
-    Reiting=[]
+    Reiting=models.IntegerField
+
 
     def __str__(self):
         return self.Name

@@ -17,5 +17,5 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
-    path("osn/",include("osn.urls")),
+    path("osn/",include("osn.urls"),name="base.html"),
     path('admin/', admin.site.urls)]
