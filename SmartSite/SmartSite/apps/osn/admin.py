@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Priloshenie,ButtonFind,Comment
+admin.site.register(Priloshenie)
+admin.site.register(ButtonFind)
+admin.site.register(Comment)
