@@ -1,5 +1,32 @@
 {% extends "base.html" %}
-{% block title %}{{a.Name}}{% endblock %}
+{% block title %}{{Priloshenie.Name}}{% endblock %}
 {% block content %}
-<h2>{{a.Name}}</h2>
+<h2 xmlns="">{{Priloshenie.Name}}
+</h2>
+{{Priloshenie.Text}}
+{{Priloshenie.Pub_Date}}<br>
+{% if last_comment %}
+{%for c in last_comment%}
+<p>
+    <strong>{{c.Name}}</strong>
+    <p>{{c.Text}}</p>
+    <p>{{c.Reiting}}</p>
+
+</p>
+{%endfor%}
+{%else%}
+Комментариев нет
+{%endif%}
+<from action="{%url 'osn:comment' Priloshenie.id %}"  method="POST">
+    {% csrf_token %}
+       <textarea name="name" required="" id="1" placeholder="Текст комментария" cols="30" rows="10">
+    </textarea><br>
+    <textarea name="text" required="" id="2" placeholder="Текст комментария" cols="30" rows="10">
+    </textarea><br>
+    <input type="text"  placeholder="Оценка" name="mark"><br>
+    <button type="submit"> Оставить комментарий </button><script></script>
+      <a href="{% url 'osn:index'%}">{Вернуться}</a>
+    <a href="{% url 'osn:comment' Priloshenie.id % name text}">{Комментарий}</a>
+</from>
+
 {% endblock %}

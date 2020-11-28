@@ -1,0 +1,16 @@
+{% extends "bc/index.html" %}
+{% block form %}
+    <div>
+        <form action = "" method = "post" class = "registration">
+            {% csrf_token %}
+            {% if errors %}
+                {% for error in errors %}
+                    <p>{{error}}</p>
+                {% endfor %}
+            {% endif %}
+            <p><input type = "username" name = "username" placeholder = "Введите логин"></p>
+            <p><input type = "password" name = "password" placeholder = "Введите ваш пароль"></p>
+            <input type = "submit" value = "войти">
+        </form>
+    </div>
+    {% endblock %}

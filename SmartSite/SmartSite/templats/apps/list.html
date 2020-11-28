@@ -4,8 +4,14 @@
 {% if last %}
 {%for a in last%}
 <a href="{% url 'osn:detail' a.id %}">{{a.Name}}</a>
+<br>
 {%endfor%}
 {%else%}
 По вашему запросу ничего не найдено
 {%endif%}
+<form action="{%url 'osn:index', Priloshenie.id}"  method="POST">
+    {% csrf_token %}
+<input type="text" required placeholder="find" name="Finder"> <br><br>
+    <button type="submit"> Поиск </button>
+<a href="{% url 'osn:test' %}">{Поиск}</a></form>
 {% endblock %}
